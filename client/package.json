@@ -1,7 +1,7 @@
 {
   "name": "voting-client",
   "version": "1.0.0",
-  "description": "",
+  "description": "Client for voting",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
@@ -20,6 +20,7 @@
     "webpack-dev-server": "^1.11.0"
   },
   "dependencies": {
-    "immutable": "^3.7.5"
+    "immutable": "^3.7.5",
+    "react": "^0.13.3"
   }
 }
