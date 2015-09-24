@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Winner from './Winner';
+import {next} from '../actions';
 
 class Results extends Component {
   getVotes(entry) {
@@ -50,5 +51,5 @@ function mapStateToProps(state) {
 }
 
 export { Results };
-const ResultsContainer = connect(mapStateToProps)(Results);
+const ResultsContainer = connect(mapStateToProps, { next })(Results);
 export default ResultsContainer;

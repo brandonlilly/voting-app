@@ -8,7 +8,7 @@ class Winner extends Component {
 
     return (
       <div className="winner">
-        Winner is {winner}!
+        <h2>Winner is {winner}!</h2>
       </div>
     );
   }
