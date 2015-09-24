@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 import {Map} from 'immutable';
 
 const pair = ['Laputa', 'Inception'];
-const tally = Map({'Laputa': 5, 'Inception': 4});
+const tally = Map({'Laputa': 5});
 
 class App extends Component {
   render() {
