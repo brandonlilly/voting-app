@@ -1,5 +1,5 @@
 import React, {findDOMNode} from 'react/addons';
-import Voting from '../../src/components/Voting';
+import {Voting} from '../../src/components/Voting';
 import {expect} from 'chai';
 
 const {

@@ -8,15 +8,9 @@ const tally = Map({'Laputa': 5});
 class App extends Component {
   render() {
     const { children } = this.props;
-
-    const child = cloneElement(children, {
-      pair,
-      tally,
-    });
-
     return (
       <div>
-        {child}
+        {children}
         <div>
           <Link to="/">Vote</Link> - <Link to="/results">Results</Link>
         </div>

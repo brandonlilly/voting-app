@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Winner from './Winner';
 import Vote from './Vote';
 
@@ -17,4 +18,14 @@ class Voting extends Component {
   }
 }
 
-export default Voting;
+function mapStateToProps(state) {
+  return {
+    pair: state.getIn(['vote', 'pair']),
+    winner: state.get('winner'),
+  };
+}
+
+const VotingContainer = connect(mapStateToProps)(Voting);
+
+export { Voting };
+export default VotingContainer;

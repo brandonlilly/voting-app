@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Winner from './Winner';
 
 class Results extends Component {
@@ -40,4 +41,14 @@ class Results extends Component {
   }
 }
 
-export default Results;
+function mapStateToProps(state) {
+  return {
+    pair: state.getIn(['vote', 'pair']),
+    tally: state.getIn(['vote', 'tally']),
+    winner: state.get('winner'),
+  };
+}
+
+export { Results };
+const ResultsContainer = connect(mapStateToProps)(Results);
+export default ResultsContainer;
