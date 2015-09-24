@@ -65,4 +65,45 @@ describe('reducer', () => {
     }));
   });
 
+  describe('VOTE', () => {
+
+    it('sets hasVoted', () => {
+      const state = fromJS({
+        vote: {
+          pair: ['Laputa', 'Inception'],
+          tally: { 'Laputa': 4 }
+        },
+      });
+      const action = { type: 'VOTE', entry: 'Laputa' };
+      const nextState = reducer(state, action);
+
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: ['Laputa', 'Inception'],
+          tally: { 'Laputa': 4 },
+        },
+        hasVoted: 'Laputa',
+      }));
+    });
+
+    it('does not set hasVoted if entry is invalid', () => {
+      const state = fromJS({
+        vote: {
+          pair: ['Laputa', 'Inception'],
+          tally: { 'Laputa': 4 }
+        },
+      });
+      const action = { type: 'VOTE', entry: 'Dark Knight Rises' };
+      const nextState = reducer(state, action);
+
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: ['Laputa', 'Inception'],
+          tally: { 'Laputa': 4 },
+        }
+      }));
+    });
+
+  });
+
 });
