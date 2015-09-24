@@ -1,7 +1,7 @@
 import {Map, List} from 'immutable';
 
 function setState(state, newState) {
-  return state.merge(newState);
+  return state.remove('winner').merge(newState);
 }
 
 function resetVote(state, nextState) {
