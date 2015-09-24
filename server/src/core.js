@@ -32,7 +32,7 @@ export function next(state) {
   });
 }
 
-export function vote(voteState, entry) {
+export function vote(voteState = Map(), entry) {
   return voteState.updateIn(
     ['tally', entry],
     0,
