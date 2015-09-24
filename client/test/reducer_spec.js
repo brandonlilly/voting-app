@@ -40,8 +40,60 @@ describe('reducer', () => {
       expect(nextState).to.equal(fromJS({
         vote: {
           pair: ['Laputa', 'Inception'],
-          tally: { 'Laputa': 5},
+          tally: { 'Laputa': 5 },
         }
+      }));
+    });
+
+
+    it('removes hasVoted if pair changes', () => {
+      const initialState = fromJS({
+        vote: {
+          pair: ['Laputa', 'Inception'],
+          tally: { 'Laputa': 7 },
+        },
+        hasVoted: 'Laputa',
+      });
+      const action = {
+        type: 'SET_STATE',
+        state: {
+          vote: {
+            pair: ['Princess Mononoke', 'Interstellar'],
+          }
+        }
+      };
+      const nextState = reducer(initialState, action);
+
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: ['Princess Mononoke', 'Interstellar'],
+        }
+      }));
+    });
+
+    it('doesn\'t remove hasVoted if pair stays the same', () => {
+      const initialState = fromJS({
+        vote: {
+          pair: ['Laputa', 'Inception'],
+          tally: { 'Laputa': 7 },
+        },
+        hasVoted: 'Laputa',
+      });
+      const action = {
+        type: 'SET_STATE',
+        state: {
+          vote: {
+            pair: ['Laputa', 'Inception'],
+          }
+        }
+      };
+      const nextState = reducer(initialState, action);
+
+      expect(nextState).to.equal(fromJS({
+        vote: {
+          pair: ['Laputa', 'Inception'],
+        },
+        hasVoted: 'Laputa',
       }));
     });
 
